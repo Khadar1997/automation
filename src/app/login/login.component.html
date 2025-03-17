@@ -1,0 +1,53 @@
+<div class="main-content">
+    <div class="login-container" *ngIf="isLogin">
+      <h2 class="label_color">Login</h2>
+      <!-- Login Form -->
+      <form (ngSubmit)="login()" #loginForm="ngForm" class="form_css">
+        <div class="input_div">
+          <label class="label_color" for="username">Email:</label>
+          <input type="text" id="email" [(ngModel)]="loginData.email" placeholder="Email" name="email" required />
+        </div>
+  
+        <div class="input_div">
+          <label class="label_color" for="password">Password:</label>
+          <input type="password" id="password" [(ngModel)]="loginData.password" placeholder="Password" name="password" required />
+        </div>
+        <div class="signup_div">
+          <button type="submit" [disabled]="!loginForm.form.valid">Login</button>
+        </div>
+        <div class="signup_div">
+          <label class="label_color">Don't have an account? <span class="signup_color"
+              (click)="Signup_Login_click()">Signup</span></label>
+        </div>
+      </form>
+    </div>
+  
+    <!-- Signup Form -->
+    <div class="login-container" *ngIf="!isLogin">
+      <h2 class="label_color">Get Started Now</h2>
+      <form (ngSubmit)="signup()" #signupForm="ngForm" class="form_css">
+        <div class="input_div">
+          <label class="label_color" for="username">Username:</label>
+          <input type="text" id="username" [(ngModel)]="signupData.username" placeholder="Username" name="username" required />
+        </div>
+        <div class="input_div">
+          <label class="label_color" for="username">Email:</label>
+          <input type="text" id="email" [(ngModel)]="signupData.email" placeholder="Email" name="email" required />
+        </div>
+        <div class="input_div">
+          <label class="label_color" for="username">Phone Number:</label>
+          <input type="text" id="phoneNumber" [(ngModel)]="signupData.number" placeholder="Phonenumber" name="phoneNumber" required />
+        </div>
+        <div class="input_div">
+          <label class="label_color" for="username">Password:</label>
+          <input type="text" id="password" [(ngModel)]="signupData.password" placeholder="Password" name="password" required />
+        </div>
+        <div class="signup_div">
+          <button type="submit" [disabled]="!signupForm.form.valid">Sign Up</button>
+        </div>
+        <div class="signup_div">
+          <label class="signup_color" (click)="Signup_Login_click()">Login</label>
+        </div>
+      </form>
+    </div>
+  </div>
